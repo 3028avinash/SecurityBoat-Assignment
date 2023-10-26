@@ -10,7 +10,7 @@
 </style>
 
 
-
+<div class="d-flex">
 
 <div id="<%= dom_id task %>">
   <p>
@@ -38,4 +38,27 @@
     <%= task.user_id %>
   </p>
 
+</div>
+
+<div id="<%= dom_id task %>">
+<h3></h3>
+<% comment = task.comments.last%>
+  <p>
+    <strong>Id:</strong>
+    <%= comment.id %>
+  </p>
+
+  <p>
+    <strong>Content:</strong>
+    <%= comment.content %>
+  </p>
+  <p>
+    <strong>Date:</strong>
+    <%= comment.created_at %>
+  </p>
+  
+
+
+ 
+</div>
 </div>
