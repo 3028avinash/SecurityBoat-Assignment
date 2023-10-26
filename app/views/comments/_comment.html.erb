@@ -9,7 +9,7 @@
 
 
 
-
+<div class="d-flex">
 <div id="<%= dom_id comment %>">
   <p>
     <strong>Content:</strong>
@@ -31,4 +31,23 @@
     <%= comment.user_id %>
   </p>
 
+</div>
+
+<div id="<%= dom_id comment %>">
+  <p>
+    <strong>Task Id:</strong>
+    <%= comment.task_id %>
+  </p>
+  <p>
+    <strong> Title:</strong>
+    <%= comment.task.title %>
+  </p>
+  <p>
+    <strong> Description:</strong>
+    <%= comment.task.description %>
+  </p>
+
+  
+
+</div>
 </div>
