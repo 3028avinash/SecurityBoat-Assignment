@@ -207,7 +207,7 @@ body {
     <h3>User/Admin Login</h3>
         <%= form_tag login_path, method: :post, class: 'login__form' do %>
           <div class="login__field fa fa-user">
-            <%= label_tag :username, 'Username' %>
+            <%= label_tag :username, 'Email/Mobile' %>
             <%= text_field_tag :username, nil, class: 'login__input'%>
           </div>
           <div class="login__field fa fa-lock">
