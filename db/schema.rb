@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_22_164945) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_26_055825) do
   create_table "comments", force: :cascade do |t|
     t.text "content"
     t.integer "task_id", null: false
@@ -45,6 +45,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_22_164945) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "security_token"
   end
 
   add_foreign_key "comments", "tasks"
