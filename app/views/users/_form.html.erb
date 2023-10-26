@@ -34,6 +34,11 @@
 
   <div>
     <%= form.submit %>
+    <% if !session[:user_id].present?%>
+      <%= link_to "Back To Login", root_path, class: "btn btn-primary m-2 btn-sm" %>
+    <% end%>
+  </div>
+  <div>
   </div>
 </div>
 <% end %>

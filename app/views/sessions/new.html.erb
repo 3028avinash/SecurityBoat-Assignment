@@ -22,8 +22,8 @@ body {
 .screen {		
 	background: linear-gradient(90deg, #5D54A4, #7C78B8);		
 	position: relative;	
-	height: 600px;
-	width: 360px;	
+	height: 700px;
+	width: 400px;	
 	box-shadow: 0px 0px 24px #5C5696;
 }
 
@@ -202,7 +202,9 @@ body {
 	<% end %>
 	
     <div class="screen__content">
-		
+		<div class="login__submit">
+            <%= link_to 'Create New User', new_user_path, class: 'fa fa-user ' %>
+          </div>
       <div class="login">
     <h3>User/Admin Login</h3>
         <%= form_tag login_path, method: :post, class: 'login__form' do %>
@@ -217,6 +219,7 @@ body {
           <div class="login__field">
             <%= submit_tag 'Login', class: 'login__submit fa fa-lock' %>
           </div>
+          
         <% end %>
       </div>
     </div>

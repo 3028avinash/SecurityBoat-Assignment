@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
-
+  skip_before_action :require_authentication, only: %i[new create]
   # GET /users or /users.json
   def index
     if session[:user_id] == 'admin'
