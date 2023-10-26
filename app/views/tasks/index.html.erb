@@ -1,0 +1,50 @@
+<p style="color: green"><%= notice %></p>
+<div class="d-flex justify-content-between">
+<h1 style="text-align: center;">Tasks</h1>
+<%= link_to "New task", new_task_path, class: "btn btn-primary p-3 m-1" %>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">User-Id</th>
+      <th scope="col">Title</th>
+      <th scope="col">Description</th>
+      <th scope="col">Due-Date</th>
+      <th scope="col">Created-Date</th>
+      <th scope="col">Completed</th>
+      <th scope="col">Show</th>
+    </tr>
+  </thead>
+
+
+  <tbody>
+  <% @tasks.each do |task| %>
+    <tr>
+      <th scope="row"><%= task.id%></th>
+      <td><%= task.user_id%></td>
+      <td><%= task.title%></td>
+      <td><%= task.description.truncate(20)%></td>
+      <td><%= task.due_date%></td>
+      <td><%= task.created_at%></td>
+      <td><%= task.completed%></td>
+      <td><%= link_to "Show this task", task, class: "btn btn-primary"  %></td>
+    </tr>
+  <% end %>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+<div id="tasks">
+</div>
+

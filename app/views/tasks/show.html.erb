@@ -1,0 +1,11 @@
+<p style="color: green"><%= notice %></p>
+<h1>Task Detail</h1>
+<%= render @task %>
+
+<div>
+  <%= link_to "Edit this task", edit_task_path(@task), class: 'btn btn-primary' %> |
+  <%= link_to "Back to tasks", tasks_path , class: 'btn btn-primary'%> | 
+  <%= link_to "New comment", new_comment_path(task_id: @task.id, user_id: @task.user_id), class: 'btn btn-primary' %>
+
+  <%= button_to "Destroy this task", @task, method: :delete , class: 'btn btn-primary m-1', data: { turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+</div>

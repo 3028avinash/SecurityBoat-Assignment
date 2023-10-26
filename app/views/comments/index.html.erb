@@ -1,0 +1,46 @@
+<p style="color: green"><%= notice %></p>
+<h1 style="text-align: center;">Comments</h1>
+
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Task-Id</th>
+      <th scope="col">User-Id</th>
+      <th scope="col">Content</th>
+      <th scope="col">Date</th>
+      <th scope="col">Show</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @comments.each do |comment| %>
+    <tr>
+      <th scope="row"><%= comment.id%></th>
+      <td><%= comment.task_id%></td>
+      <td><%= comment.user_id%></td>
+      <td><%= comment.content%></td>
+      <td><%= comment.created_at.to_date%></td>
+      <td><%= link_to "Show comment", comment, class: "btn btn-primary" %></td>
+
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+
+
+
+
+  <div id="comments">
+    
+      <%#= render comment %>
+      <p>
+        
+      </p>
+    
+  </div>
+
+
+<%#= link_to "New comment", new_comment_path %>

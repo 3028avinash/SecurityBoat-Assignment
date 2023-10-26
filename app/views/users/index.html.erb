@@ -1,0 +1,66 @@
+<p style="color: green"><%= notice %></p>
+
+<% if session[:user_id] == 'admin' %>
+<div class="d-flex justify-content-between">
+<h1 style="text-align: center;">Users</h1>
+<%= link_to "Add User", new_user_path, class: "btn btn-primary p-3 m-1" %>
+</div>
+  <div id="users">
+      <%#= render user %>
+
+
+
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Mobile-Number</th>
+      <th scope="col">e-Mail</th>
+      <th scope="col">Created-Date</th>
+      <th scope="col">Show</th>
+    </tr>
+  </thead>
+
+
+  <tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <th scope="row"><%= user.id%></th>
+      <td><%= user.name%></td>
+      <td><%= user.mobile_number%></td>
+      <td><%= user.email%></td>
+      <td><%= user.created_at%></td>
+      <td><%= link_to "Show User", user, class: "btn btn-primary"  %></td>
+    </tr>
+    <% end %>
+    
+  </tbody>
+</table>
+
+
+  </div>
+  <% else%>
+  <% user = User.find(session[:user_id])%>
+      <div class="card container" style="width: 23rem;">
+      <img src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"><%= user.name%></h5>
+        <p class="card-text">I AM USER I CAN CREATE TASKS.</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">User Id : <%=user.id%></li>
+        <li class="list-group-item">Mobile : <%=user.mobile_number%></li>
+        <li class="list-group-item">eMail : <%=user.email%></li>
+        <li class="list-group-item">Joined at : <%=user.created_at.to_date%></li>
+      </ul>
+      <div class="card-body">
+        <%= link_to 'Edit Details', edit_user_path(user), class: 'card-link btn btn-primary'%>
+        <%= link_to "Delete", user, method: :delete, class: 'card-link btn btn-primary' %>
+      </div>
+    </div>
+<% end %>
+
+<%#= link_to "New user", new_user_path %>

@@ -1,0 +1,60 @@
+<div id="<%= dom_id user %>">
+ 
+
+
+
+
+
+<div class = "d-flex justify-content-between">
+    <div class="card" style="width: 23rem;">
+      <img src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"><%= user.name%></h5>
+        <p class="card-text">I AM USER I CAN CREATE TASKS.</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">User Id : <%=user.id%></li>
+        <li class="list-group-item">Mobile : <%=user.mobile_number%></li>
+        <li class="list-group-item">eMail : <%=user.email%></li>
+        <li class="list-group-item">Joined at : <%=user.created_at.to_date%></li>
+      </ul>
+      <div class="card-body">
+        <%= link_to 'Edit Details', edit_user_path(user), class: 'card-link btn btn-primary'%>
+        <%= link_to "Delete", user, method: :delete, class: 'card-link btn btn-primary', data: { turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+      </div>
+    </div>
+
+    <div class="card" style="width: 35rem;">
+      <table class="table">
+        <thead>
+          <tr>
+            <h2 style="text-align: center;"><%= user.name%>'s Last 10 Tasks</h2>
+          </tr>
+        </thead>
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Title</th>
+            <th scope="col">Due-Date</th>
+            <th scope="col">Created-Date</th>
+            <th scope="col">Completed</th>
+            <th scope="col">Show</th>
+          </tr>
+        </thead>
+
+
+        <tbody>
+        <% user.tasks.last(10).each do |task| %>
+          <tr>
+            <th scope="row"><%= task.id%></th>
+            <td><%= task.title%></td>
+            <td><%= task.due_date%></td>
+            <td><%= task.created_at.to_date%></td>
+            <td><%= task.completed%></td>
+            <td><%= link_to "Show this task", task, class: "btn btn-primary"  %></td>
+          </tr>
+        <% end %>
+          
+        </tbody>
+    </table>
+  </div>
